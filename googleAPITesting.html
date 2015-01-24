@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Polylines</title>
+    <style>
+      html {
+        height: 98%;
+		width: 98%;
+      }
+	  body {
+        height: 98%;
+		width: 98%;
+      }
+	  #map-canvas {
+        height: 98%;
+		width: 98%;
+      }
+
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+// This example creates a 2-pixel-wide red polyline showing
+// the path of William Kingsford Smith's first trans-Pacific flight between
+// Oakland, CA, and Brisbane, Australia.
+var map;
+function initialize() {
+  var mapOptions = {
+    zoom: 19,
+    center: new google.maps.LatLng(43.47204906,-80.54384285),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+	disableDefaultUI: false,
+
+  };
+
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  var campusRouteCoordinates = [
+    new google.maps.LatLng(43.47207511, -80.54394739),
+    new google.maps.LatLng(43.471175, -80.543776),
+    new google.maps.LatLng(43.47086315, -80.543476),
+    new google.maps.LatLng(43.47096971, -80.54305153)
+  ];
+  var campusRoute = new google.maps.Polyline({
+    path: campusRouteCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  campusRoute.setMap(map);
+  google.maps.event.addListener(map, 'click', function(e) {
+	console.log(e.latLng.lat().toFixed(6) + " plus " + e.latLng.lng().toFixed(6));
+	document.getElementById("sample1_subject").value = e.latLng.lat().toFixed(6);
+	document.getElementById("sample1_catalog").value = e.latLng.lng().toFixed(6);
+	var current = document.getElementById("sample1_format").value;
+	current = "doorlat: " + e.latLng.lat().toFixed(6) + ", doorlng: " + e.latLng.lng().toFixed(6) + ",";
+	document.getElementById("sample1_format").value = current;
+  });
+}
+
+function setcenter() {
+	console.log("clicked center");
+	var latCenter = document.getElementById("sample1_subject").value;
+	var lngCenter = document.getElementById("sample1_catalog").value;
+    console.log("Center Changed to: " + latCenter + " " + lngCenter);
+    var something = new google.maps.LatLng(latCenter,lngCenter,true);
+	
+	map.setCenter(something);
+}; 
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+	<div id='sample1_chooser'>
+		<label>Latitude: <input type='text' id='sample1_subject' size='8'></label>
+		<label>Longitude: <input type='text' id='sample1_catalog' size='8'/></label>
+		<button id='sample1_center' onclick="setcenter()">Center</button>
+		<label>Formatted <input type='text' id='sample1_format' size='40'/></label>
+	</div>
+  </body>
+</html>

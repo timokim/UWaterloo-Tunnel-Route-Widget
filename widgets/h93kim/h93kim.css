@@ -1,0 +1,229 @@
+/* Stlye for Map Widget */
+
+
+/* 
+   Reset CSS
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	margin: 20px;
+	font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Override Cell Size */
+
+.cell {
+	min-height:400px;
+	height:auto;
+	padding-bottom:20px;
+}
+
+/* Map Container */
+
+#map-canvas {
+	min-height: 500px;
+	width:auto;
+	overflow:hidden;
+}
+
+/* Option Container */
+
+#h93kim_options {
+	float:right;
+	width:330px;
+	background: url(bg.png) repeat;
+	border: 1px solid #e1e1e1;
+	border-top: none;
+	min-height:500px;
+
+}
+
+#h93kim h1, #h93kim h3 {
+	font-size:37px;
+	font-weight:lighter;
+	margin: 10px 0;
+}
+
+#h93kim h3 {
+	font-size:17px;
+	text-align:center;
+	background: #fff;
+	border-bottom: 1px solid #E1E1E1;
+	border-top: 1px solid #E1E1E1;
+	height: 50px;
+	padding-top: 15px;
+	margin: 0 auto;
+}
+
+/* Gradient Buttons */
+
+.button {
+	width: 240px;
+	height: 40px;
+	text-align: center;
+	font-size: 15px;
+	display: block;
+	margin: 0 auto 17px auto;
+	background: #eaeaea;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#EEEEEE);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ffffff),
+		to(#EEEEEE));
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #cfcfcf;
+	text-shadow:
+		0px -1px 0px rgba(255,255,255,0.4),
+		0px 1px 0px rgba(255,255,255,0.3);
+	
+}
+
+.button:hover {
+	background: #fafafa;
+}
+
+#h93kim_buildings {
+	overflow:hidden;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #FFF;
+	padding:15px 0;
+}
+
+#h93kim_chooser {
+	border-top:1px solid #FFF;
+	border-bottom:1px solid #ccc;
+	padding:0 0 15px 22px;
+	font-size:12px;
+}
+
+#h93kim_chooser h4 {
+	margin:12px 0 8px 8px;
+	font-weight:600;
+	font-size:14px;
+}
+
+#h93kim_chooser input {
+    margin: 3px 3px 3px 8px;
+}
+
+#h93kim_chooser label {
+	vertical-align: text-top;
+}
+
+#h93kim_options .h93kim_select_group {
+	clear:both;
+	position:relative;
+	margin:0 0 10px 30px;
+	overflow:hidden;
+}
+#h93kim_options .h93kim_select_group label  {
+	float:left;
+	width:160px;
+	margin:8px 0;
+	font-weight:600;
+	font-size:14px;
+}
+#h93kim_options .h93kim_select {
+	background:url(select.png) no-repeat;
+	width:238px;
+	height:40px;
+	padding:0;
+	cursor:pointer;
+	float:left;
+	position:relative;
+}
+#h93kim_options .h93kim_select:hover {
+	background-position:0 -41px;
+}
+#h93kim_options .h93kim_select:active {
+	background-position:0 -82px;
+}
+#h93kim_options .h93kim_select span {
+	position:absolute;
+	font-weight:400;
+	font-size:14px;
+	top:12px;
+	left:15px;
+}
+#h93kim_options .h93kim_select span.default {
+	color:#999;
+}
+#h93kim_options .h93kim_select select {
+	opacity:0;
+	cursor:pointer;
+	width:100%;
+	-webkit-appearance:none;
+	border: 1px solid #959595;
+	padding: 6px 5px;
+	font-size: 15px;
+	color: #333;
+	width: 237px;
+	max-height:300px;
+}
+
+#h93kim_command_button {
+	border-top:1px solid #fff;
+	padding:20px 0 0 0;
+}
+
+
+/* Responsive CSS */
+
+@media screen and (max-width:500px) {
+	#map-canvas {
+	min-height: 500px;
+	width:330px;
+	overflow:hidden;
+}
+
+	
+	}
